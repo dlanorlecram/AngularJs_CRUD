@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js" charset="utf-8"></script>
+    <script src="script.js" charset="utf-8"></script>
+</head>
+<body>
+    <div ng-app="Sql" ng-controller="ReadCtrl">
+    <h1>CRUD Angulars</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Sentence</th>
+    </tr>
+    <tr ng-repeat="record in records">
+        <td>{{ record.id }}</td>
+        <td>{{ record.username }}</td>
+        <td>{{ record.password }}</td>
+        <td>{{ record.sentence }}</td>
+    </tr>
+</table>
+
+</div>
+</body>
+</html>
