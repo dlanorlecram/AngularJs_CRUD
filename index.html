@@ -1,28 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="AppPortfolio">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js" charset="utf-8"></script>
     <script src="script.js" charset="utf-8"></script>
 </head>
-<body>
-    <div ng-app="Sql" ng-controller="ReadCtrl">
+<body ng-controller="DataCtrl">
+    <div >
     <h1>CRUD Angulars</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Sentence</th>
-    </tr>
-    <tr ng-repeat="record in records">
-        <td>{{ record.id }}</td>
-        <td>{{ record.username }}</td>
-        <td>{{ record.password }}</td>
-        <td>{{ record.sentence }}</td>
-    </tr>
-</table>
+<div class="container" ng-init="readData();createData(); updateData()">
+
+    <table >
+        <span><p>{{title}}</p></span>
+        <tr>
+            <th>Id</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Sentence</th>
+        </tr>
+        <tr ng-repeat="record in records">
+            <td>{{ record.id }}</td>
+            <td>{{ record.username }}</td>
+            <td>{{ record.password }}</td>
+            <td>{{ record.sentence }}</td>
+            <td><input type="checkbox" name="" value="delete" ng-click="deleteData(record.id)"></td>
+            <td><input type="checkbox" name="" value="update" ng-click="fetchData(record)"></td>
+        </tr>
+    </table>
+    <div class="">
+        <form class="" ng-submit = "submitInsert()">
+            <input type="text" ng-model="username" value="">
+            <input type="text" ng-model="password" value="">
+            <input type="text" ng-model="sentence" value="">
+            <input type="submit" name="" value="enregister">
+        </form>
+    </div>
+    <div class="">
+        <h1>Update</h1>
+        <form class="">
+            <input type="text" ng-model="fetchUsername" ng-change="newUsername"
+            value="{{ change = fetchUsername}}">
+            <input type="text" ng-model="fetchPassword" ng-change="newPassword"
+            value="{{ change = fetchPassword }}">
+            <input type="text" ng-model="fetchSentence" ng-change="newSentence"
+            value="{{ change =fetchSentence}}">
+            <input type="submit" name="" ng-click="update()" value="enregister">
+        </form>
+    </div>
+</div>
 
 </div>
 </body>
